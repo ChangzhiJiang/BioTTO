@@ -1,0 +1,56 @@
+target:
+  name: amp
+  label: 0
+sft:
+  epochs: 3
+  max_steps: 400
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  lora_rank: 32
+  lora_alpha: 16
+  lora_dropout: 0.05
+  batch_size: 2
+  gradient_accumulation: 16
+  warmup_ratio: 0.03
+  seed: 20260725
+tgl:
+  rounds: 0
+  iterations: 20
+  learning_rate: 0.1
+  reward_coeff: 0.5
+  nll_coeff: 0.3
+  kl_coeff: 0.4
+reward:
+  source: prior
+  activity_coeff: 0.0
+  stability_coeff: 0.0
+  similarity_coeff: 0.0
+  length_coeff: 0.0
+  target_length: 19.0
+  stability_target: 40.0
+  stability_scale: 10.0
+  length_scale: 4.0
+  max_references: 256
+sampling:
+  temperature: 0.8
+  top_p: 0.95
+  top_k: 50
+benchmark:
+  n_sequences: 10000
+  min_length: 5
+  max_length: 50
+  max_attempt_factor: 20
+  generation_batch_size: 1
+  model_dtype: float16
+  seed: 20260928
+paths:
+  tokenizer: assets/vocab.txt
+  activity_predictor: checkpoints/activity/amp.pt
+  prior: checkpoints/prior/peptide_prior_5_50.json
+  lora_checkpoint: checkpoints/lora/amp/progen2_sft_lora_state.pt
+mic:
+  enabled: true
+  model_path: checkpoints/mic/amp_mic_esm8m_v2.pt
+  reward_coeff: 1.0
+  reward_threshold: 1.5051499783
+  reward_scale: 0.5

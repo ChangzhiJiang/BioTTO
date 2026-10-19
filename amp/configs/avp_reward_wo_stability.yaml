@@ -1,0 +1,7 @@
+target: {name: avp, label: 2}
+sft: {epochs: 3, max_steps: 0, learning_rate: 0.000055, weight_decay: 0.0025, lora_rank: 32, lora_alpha: 16, lora_dropout: 0.025, batch_size: 2, gradient_accumulation: 16, warmup_ratio: 0.03, seed: 20260727}
+tgl: {rounds: 3, iterations: 20, learning_rate: 0.1, reward_coeff: 0.5, nll_coeff: 0.3, kl_coeff: 0.4}
+reward: {activity_coeff: 6.0, stability_coeff: 0.0, similarity_coeff: 0.08, length_coeff: 0.07, target_length: 18.0, stability_target: 40.0, stability_scale: 10.0, length_scale: 4.0, max_references: 256}
+sampling: {temperature: 0.8, top_p: 0.95, top_k: 50}
+benchmark: {n_sequences: 5000, min_length: 5, max_length: 50, max_attempt_factor: 20, generation_batch_size: 8, model_dtype: float16, seed: 2026082300}
+paths: {tokenizer: assets/vocab.txt, activity_predictor: checkpoints/activity/avp.pt, prior: checkpoints/prior/peptide_prior_5_50.json, lora_checkpoint: checkpoints/lora/avp/progen2_sft_lora_state.pt}
