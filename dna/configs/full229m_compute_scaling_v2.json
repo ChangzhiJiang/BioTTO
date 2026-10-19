@@ -1,0 +1,94 @@
+{
+  "protocol": "v2 Design-Model-only compute scaling; no Evaluation-Model or FullMPRA queries",
+  "parameter_stage": {
+    "seed": 20260822,
+    "pool_size": 64
+  },
+  "budget_stage": {
+    "seed": 20260823,
+    "pool_size": 768,
+    "nested_budgets": [384, 768],
+    "top_k": 128
+  },
+  "selection_rule": "Use the same standardized objective as v2 search and fixed ranking score Design hard MinGap - 0.5 * Evo2 NLL. Select one parameter winner before the nested 384-vs-768 budget comparison.",
+  "configs": [
+    {
+      "name": "scale_10_lr01_prior05",
+      "steps": 10,
+      "learning_rate": 0.1,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.5,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "ranking_prior_penalty": 0.5
+    },
+    {
+      "name": "scale_10_lr01_prior025",
+      "steps": 10,
+      "learning_rate": 0.1,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.25,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "ranking_prior_penalty": 0.5
+    },
+    {
+      "name": "scale_20_lr005_prior05",
+      "steps": 20,
+      "learning_rate": 0.05,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.5,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "ranking_prior_penalty": 0.5
+    },
+    {
+      "name": "scale_20_lr005_prior025",
+      "steps": 20,
+      "learning_rate": 0.05,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.25,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "ranking_prior_penalty": 0.5
+    },
+    {
+      "name": "scale_20_lr0025_prior05",
+      "steps": 20,
+      "learning_rate": 0.025,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.5,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "ranking_prior_penalty": 0.5
+    },
+    {
+      "name": "scale_20_lr0025_prior025",
+      "steps": 20,
+      "learning_rate": 0.025,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.25,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "ranking_prior_penalty": 0.5
+    }
+  ]
+}

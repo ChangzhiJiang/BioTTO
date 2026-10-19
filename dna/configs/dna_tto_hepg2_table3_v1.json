@@ -1,0 +1,37 @@
+{
+  "protocol": "dna_tto_hepg2_table3_v1",
+  "model_name": "DNA_TTO",
+  "target": "HepG2",
+  "off_targets": ["K562", "SK-N-SH"],
+  "seeds": [20260824, 20260825, 20260826],
+  "sequence_length": 200,
+  "pool_size": 768,
+  "optimization_starts": 128,
+  "trajectories_per_start": 12,
+  "steps": 10,
+  "optimization_stage_evaluations": 15360,
+  "top_k": 256,
+  "full": {
+    "prior_weight": 0.0,
+    "ranking_prior_penalty": 0.0,
+    "edit_penalty_weight": 0.0,
+    "trust_region_weight": 1.0,
+    "max_edits": 80,
+    "learning_rate": 0.1,
+    "temperature": 0.7,
+    "enforce_hard_constraints": false
+  },
+  "panel_a": ["full", "no_trust", "no_lora", "no_edit_cap", "plus_sequence_filters"],
+  "panel_b": ["full", "no_tto", "frozen_context"],
+  "new_runs": ["no_trust", "no_lora", "no_edit_cap", "no_tto", "frozen_context"],
+  "reuse": {
+    "full": "outputs/hepg2_full_ablation_completion_prior0_v1/no_sequence_constraints",
+    "plus_sequence_filters": "outputs/hepg2_component_ablation_prior0_candidate_top256_v1/full"
+  },
+  "evaluation_boundary": "Lock 256 unique sequences ranked by Design reward before all post-hoc scoring.",
+  "compliance_measurement": "Report GC 0.30-0.70 and maximum homopolymer 6 on every locked set; never filter DNA_TTO candidates by these metrics.",
+  "selection_history": "The no-filter model definition was chosen after inspecting the preceding component results; this is a follow-up component study, not an untouched confirmation set.",
+  "budget_boundary": "15,360 counts gradient-step sequence evaluations only. Initial/final scoring, pool scoring, and other model calls are additional.",
+  "repeated_start_policy": "Preserve Table 3 repeated teacher-forced starts without new random perturbations; three seeds are the statistical units.",
+  "resource_policy": "Start only on GPU with no reported compute processes and low memory/use on consecutive observations; do not stop other users' jobs."
+}

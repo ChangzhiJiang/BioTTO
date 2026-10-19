@@ -1,0 +1,38 @@
+{
+  "protocol": "full 229M Design-Model development lock 2026-08-20; Evaluation-Model and public FullMPRA were not used for selection",
+  "design_checkpoint": "checkpoints/gosai_design_full_enformer.ckpt",
+  "design_checkpoint_sha256": "5eba7bab8e4e10c3c969cfd7c8b0ceb32d75ab6b6268b4fceddd5eaf9bcb2652",
+  "development_target": "K562",
+  "development_seed": 20240827,
+  "development_pool_size": 32,
+  "proposal_budget_rule": "384 proposals because locked-config development acceptance was at least 45 percent",
+  "proposal_budget": 384,
+  "top_k": 128,
+  "development_evidence": {
+    "accepted": 20,
+    "attempted": 32,
+    "acceptance_rate": 0.625,
+    "mean_design_reward_change": 1.4209018701687455,
+    "mean_evo2_nll": 1.2533203125,
+    "mean_hamming_edits": 54.5
+  },
+  "configs": [
+    {
+      "name": "locked_full229m_trust1_edit2_max80",
+      "steps": 5,
+      "learning_rate": 0.1,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.5,
+      "gradient_clip_norm": 5.0,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "min_gc": 0.3,
+      "max_gc": 0.7,
+      "max_homopolymer": 6,
+      "ranking_prior_penalty": 0.5
+    }
+  ]
+}

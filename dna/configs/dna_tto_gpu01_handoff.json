@@ -1,0 +1,16 @@
+{
+  "stage": "waiting_for_existing_gpu01_workers",
+  "pid": 933529,
+  "allowed_gpus": [0, 1],
+  "running": [
+    {"gpu": 0, "pid": 384020, "job": ["baseline", "enhancer", 20260920]},
+    {"gpu": 1, "pid": 384021, "job": ["grid04", "promoter", 20260920]}
+  ],
+  "interrupted_for_resource_change": [
+    {"gpu": 2, "pid": 384022, "job": ["grid01", "enhancer", 20260920]},
+    {"gpu": 3, "pid": 384023, "job": ["grid00", "enhancer", 20260920]}
+  ],
+  "resume_policy": "Reuse completed task locks; unfinished tasks restart with original seeds on GPU 0 or 1. No result files removed.",
+  "scheduler": "scripts/dna_tto_hparam_search_gpu01.py",
+  "log": "runs/dna_tto_hparam_gpu01.log"
+}

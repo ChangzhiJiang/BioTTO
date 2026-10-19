@@ -1,0 +1,48 @@
+{
+  "protocol": "v2 Design-Model-only 3-config x 3-seed confirmation",
+  "selection_rule": "Primary ranking uses the same standardized objective as v2 search: Design hard MinGap - 0.5 * Evo2 NLL, with the existing acceptance, entropy, and edit terms.",
+  "pool_size": 768,
+  "top_k": 128,
+  "seeds": [20260824, 20260825, 20260826],
+  "configs": [
+    {
+      "name": "confirm_20_lr005_prior025",
+      "steps": 20,
+      "learning_rate": 0.05,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.25,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "ranking_prior_penalty": 0.5
+    },
+    {
+      "name": "confirm_20_lr005_prior05",
+      "steps": 20,
+      "learning_rate": 0.05,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.5,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "ranking_prior_penalty": 0.5
+    },
+    {
+      "name": "confirm_10_lr01_prior025",
+      "steps": 10,
+      "learning_rate": 0.1,
+      "temperature": 0.7,
+      "reward_weight": 1.0,
+      "prior_weight": 0.25,
+      "initial_margin": 0.25,
+      "trust_region_weight": 1.0,
+      "edit_penalty_weight": 2.0,
+      "max_edits": 80,
+      "ranking_prior_penalty": 0.5
+    }
+  ]
+}

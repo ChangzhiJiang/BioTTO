@@ -1,0 +1,28 @@
+{
+  "protocol": "dna_tto_uncapped_six_task_v1",
+  "model_name": "DNA_TTO",
+  "tasks": {
+    "enhancer": ["HepG2", "K562", "SK-N-SH"],
+    "promoter": ["JURKAT", "K562", "THP1"]
+  },
+  "seeds": {
+    "enhancer": [20260824, 20260825, 20260826],
+    "promoter": [20260903, 20260904, 20260905]
+  },
+  "pool_size": 768,
+  "starts": 128,
+  "trajectories_per_start": 12,
+  "gradient_steps": 10,
+  "optimization_stage_design_oracle_evaluations_per_task_seed": 15360,
+  "locked_output": 256,
+  "prior_weight": 0.0,
+  "ranking_prior_penalty": 0.0,
+  "trust_kl_weight": 1.0,
+  "soft_edit_penalty_weight": 0.0,
+  "hard_edit_cap": null,
+  "sequence_validation": "ACGT-only and fixed length; deduplicate before Design-reward ranking",
+  "sequence_filter_policy": "GC and homopolymer rejection disabled",
+  "diagnostic_only_criteria": "GC 0.30-0.70 and maximum homopolymer length 6",
+  "evaluation_boundary": "Evaluation, FullMPRA, motif, and sequence diagnostics run only after immutable Top-256 locking",
+  "comparison_note": "Uses the same frozen seed-specific pools, Design Top-128 starts, oracles, and optimization-stage budget as the previous filter-enabled six-task reconstruction."
+}

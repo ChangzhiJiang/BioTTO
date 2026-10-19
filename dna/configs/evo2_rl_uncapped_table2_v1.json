@@ -1,0 +1,27 @@
+{
+  "protocol": "evo2_rl_uncapped_table2_v1",
+  "methods": ["Evo2-PPO", "Evo2-GRPO"],
+  "initialization": "same task-family Evo2 LoRA adapter used by DNA_TTO",
+  "policy": "Evo2 causal ACGT logits define a prompt-conditioned parallel edit policy",
+  "tasks": {"enhancer": ["hepg2", "k562", "sknsh"], "promoter": ["jurkat", "k562", "thp1"]},
+  "seeds": {"enhancer": [20260824, 20260825, 20260826], "promoter": [20260903, 20260904, 20260905]},
+  "pool_size": 768,
+  "shared_starts": 128,
+  "design_oracle_evaluations_per_task_seed": 15360,
+  "rounds": 60,
+  "states_per_round": 64,
+  "group_size": 4,
+  "update_epochs": 2,
+  "learning_rate": 0.00001,
+  "clip_epsilon": 0.2,
+  "reference_kl_weight": 0.05,
+  "edit_weight": 0.10,
+  "entropy_weight": 0.001,
+  "locked_output": 256,
+  "sequence_filter_policy": "ACGT-only and fixed length; GC and homopolymer rejection disabled",
+  "evaluation_boundary": "independent metrics are computed only after immutable Top-256 locks",
+  "analysis_unit": "seed; mean and sample SD over three paired seeds",
+  "ppo_note": "terminal-reward clipped PPO with a prompt-conditioned moving reward baseline",
+  "grpo_note": "terminal-reward clipped GRPO with within-start group-standardized advantages and no critic"
+}
+
