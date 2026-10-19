@@ -73,7 +73,7 @@ python scripts/run_search_sweep.py \
   --output-dir outputs/search
 ```
 
-By default, the search runs for `K562`, `HepG2`, and `SK-N-SH`. To run the search for only one target, add an option such as `--targets HepG2`.
+To run the search for only one target, add an option such as `--targets HepG2`.
 
 ## Command Help
 
